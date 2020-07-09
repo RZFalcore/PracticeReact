@@ -1,0 +1,13 @@
+[{
+        "id": "id-1",
+        "name": "Tacos With Lime ",
+        "price": 20,
+        "imgURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?dpr=2&h=480&w=640"
+    },
+    {
+        "id": "id-2",
+        "name": "Tacos With Lime",
+        "price": 20,
+        "imgURL": "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?dpr=2&h=480&w=640"
+    }
+]
