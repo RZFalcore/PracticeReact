@@ -1,19 +1,42 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+import Controls from "./Controls";
 
 export default class Counter extends Component {
   static defaultProps = {
+    value: 1,
     step: 1,
   };
+
+  static propTypes = {
+    value: PropTypes.number,
+    step: PropTypes.number,
+  };
   state = {
-    value: 0,
+    value: this.props.value,
   };
 
-  handleIncrement = (e) => {
-    console.log(e);
+  handleIncrement = () => {
+    const { step } = this.props;
+
+    // this.setState({ value: value + step });
+
+    this.setState((prevState) => ({
+      value: prevState.value + step,
+    }));
   };
 
-  handleDecrement = (e) => {
-    console.log(e);
+  handleDecrement = () => {
+    const { step } = this.props;
+    // const { value } = this.state;
+    // this.setState({ value: value - step });
+
+    this.setState((prevState) => ({ value: prevState.value - step }));
+
+    //!Rare useCase: actual props
+    // this.setState((prevState, props) => ({
+    //   value: prevState.value - props.step,
+    // }));
   };
 
   render() {
@@ -22,12 +45,11 @@ export default class Counter extends Component {
     return (
       <div>
         <span>{value}</span>
-        <button type="button" onClick={this.handleIncrement}>
-          Inc + {step}
-        </button>
-        <button type="button" onClick={this.handleDecrement}>
-          Dec - {step}
-        </button>
+        <Controls
+          step={step}
+          onIncrement={this.handleIncrement}
+          onDecrement={this.handleDecrement}
+        />
       </div>
     );
   }
