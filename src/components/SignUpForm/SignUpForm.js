@@ -1,10 +1,27 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import shortid from "shortid";
-import { validateAll } from "indicative";
+import { validateAll } from "indicative/validator";
+
+import ValidatonError from "./ValidationError";
 
 const Gender = {
   MALE: "male",
   FEMALE: "female",
+};
+
+const rules = {
+  login: "required|string",
+  email: "required|email",
+  password: "required|string|min:6",
+};
+
+const messages = {
+  "login.required": "Type login!",
+  "email.required": "Enter valid email",
+  "email.email": "Email is invalid",
+  "password.required": "Type password",
+  "password.min": "At least 6 chars",
 };
 
 export default class SignUpForm extends Component {
@@ -15,6 +32,11 @@ export default class SignUpForm extends Component {
     agreed: false,
     gender: null,
     age: "",
+    errors: null,
+  };
+
+  static propTypes = {
+    onSignUp: PropTypes.func.isRequired,
   };
 
   loginInputId = shortid.generate();
@@ -34,11 +56,25 @@ export default class SignUpForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
+    const { login, email, password } = this.state;
     const { onSignUp } = this.props;
 
-    onSignUp({ ...this.state });
+    validateAll({ login, email, password }, rules, messages)
+      .then((data) => {
+        console.log("Data:", data);
 
-    this.formReset();
+        onSignUp({ ...this.state });
+        this.formReset();
+      })
+      .catch((errors) => {
+        console.log("Errors:", errors);
+
+        const formattedErrors = {};
+        errors.forEach((error) => {
+          formattedErrors[error.field] = error.message;
+        });
+        this.setState({ errors: formattedErrors });
+      });
   };
 
   formReset = () => {
@@ -53,7 +89,7 @@ export default class SignUpForm extends Component {
   };
 
   render() {
-    const { login, email, password, agreed, gender, age } = this.state;
+    const { login, email, password, agreed, gender, age, errors } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
         <label htmlFor={this.loginInputId}>
@@ -65,6 +101,7 @@ export default class SignUpForm extends Component {
             value={login}
             name="login"
           />
+          {errors && <ValidatonError label={errors.login} />}
         </label>
         <label htmlFor={this.emailInputId}>
           Email:
@@ -75,6 +112,7 @@ export default class SignUpForm extends Component {
             onChange={this.handleChange}
             name="email"
           />
+          {errors && <ValidatonError label={errors.email} />}
         </label>
         <label htmlFor={this.loginInputId}>
           Password:
@@ -85,6 +123,7 @@ export default class SignUpForm extends Component {
             value={password}
             name="password"
           />
+          {errors && <ValidatonError label={errors.password} />}
         </label>
         <label htmlFor="">
           Agree to terms
