@@ -1,0 +1,57 @@
+p {
+    padding: 2px;
+}
+
+
+.actions {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px;
+}
+
+.select {
+    width: 34%;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.select select {
+    width: 90%;
+    font-size: 12px;
+}
+
+.completed {
+    width: 36%;
+    font-size: 12px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+
+.deleteButton {
+    background-color: rgb(255, 133, 129);
+    color: white;
+    display: block;
+    height: 100%;
+    border: none;
+    border-radius: 0px 8px 8px 0px;
+}
+
+.low {
+    background-color: rgb(79, 166, 248);
+    color: white;
+}
+
+.normal {
+    background-color: rgb(231, 248, 79);
+}
+
+.high {
+    background-color: rgb(248, 79, 79);
+    color: white;
+}
