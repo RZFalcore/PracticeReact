@@ -1,15 +1,5 @@
 import React, { Component } from "react";
-import shortid from "shortid";
-import "./App.css";
 
-import TaskList from "./components/TaskList/TaskList";
-import TaskFilter from "./components/TaskFilter/TaskFilter";
-import TaskEditor from "./components/TaskEditor/TaskEditor";
-
-const tasksFilter = (tasks, query) => {
-  console.log(tasks)
-  return tasks.filter(task => task.text.toLowerCase().includes(query.toLowerCase()))
-}
 export default class App extends Component {
   state = {
     tasks: [],
