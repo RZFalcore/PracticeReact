@@ -7,6 +7,7 @@ import TaskFilter from "./components/TaskFilter/TaskFilter";
 import TaskEditor from "./components/TaskEditor/TaskEditor";
 
 const tasksFilter = (tasks, query) => {
+  console.log(tasks)
   return tasks.filter(task => task.text.toLowerCase().includes(query.toLowerCase()))
 }
 export default class App extends Component {
@@ -14,6 +15,18 @@ export default class App extends Component {
     tasks: [],
     filter: "",
   };
+
+  componentDidMount() {
+    const dataFromLC = localStorage.getItem("tasks")
+    dataFromLC && this.setState({ tasks: JSON.parse(dataFromLC) })
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const tasks = this.state.tasks;
+    if (prevState.tasks !== tasks) {
+      localStorage.setItem("tasks", JSON.stringify(tasks));;
+    }
+  }
 
   addTask = (task) => {
     const taskToAdd = {
@@ -47,19 +60,18 @@ export default class App extends Component {
     }));
   };
 
-  updateFilter = e => {
-    this.setState({filter : e.target.value})
-  }
+  updateFilter = (e) => {
+    this.setState({ filter: e.target.value });
+  };
 
-  
   render() {
     const { tasks, filter } = this.state;
-    
+
     const filteredTasks = tasksFilter(tasks, filter);
 
     return (
       <div>
-        <TaskFilter value={filter} onUpdateFilter={this.updateFilter}/>
+        <TaskFilter value={filter} onUpdateFilter={this.updateFilter} />
         <TaskEditor onTaskAdd={this.addTask} />
         <TaskList
           tasks={filteredTasks}

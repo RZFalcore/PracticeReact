@@ -1,6 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+
+import Priority from "../../utils/Priority";
+import PrioritySelector from "../PrioritySelector/PrioritySelector";
 import styles from "./Task.module.css";
+
+const options = Object.values(Priority);
 
 const Task = ({
   id,
@@ -18,16 +23,12 @@ const Task = ({
         Delete
       </button>
       <label className={styles.select}>
-        Priority
-        <select
-          name="priority"
-          value={priority}
+          Priority
+        <PrioritySelector
+          options={options}
+          priority={priority}
           onChange={(e) => onUpdatePriority(id, e.target.value)}
-        >
-          <option value="low">Low</option>
-          <option value="normal">Normal</option>
-          <option value="high">High</option>
-        </select>
+        />
       </label>
       <label className={styles.completed} htmlFor="completed">
         Completed
