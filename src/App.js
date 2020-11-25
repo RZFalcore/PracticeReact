@@ -1,20 +1,75 @@
 import React, { Component } from "react";
-import "./App.css";
 
-import SignUpForm from "./components/SignUpForm/SignUpForm";
+export default class App extends Component {
+  state = {
+    tasks: [],
+    filter: "",
+  };
 
-class App extends Component {
-  handleFormSubmit = (credentials) => {
-    console.log(credentials);
+  componentDidMount() {
+    const dataFromLC = localStorage.getItem("tasks")
+    dataFromLC && this.setState({ tasks: JSON.parse(dataFromLC) })
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const tasks = this.state.tasks;
+    if (prevState.tasks !== tasks) {
+      localStorage.setItem("tasks", JSON.stringify(tasks));;
+    }
+  }
+
+  addTask = (task) => {
+    const taskToAdd = {
+      ...task,
+      id: shortid.generate(),
+      completed: false,
+    };
+
+    this.setState((prevState) => ({ tasks: [...prevState.tasks, taskToAdd] }));
+  };
+
+  deleteTask = (id) => {
+    this.setState((state) => ({
+      tasks: state.tasks.filter((task) => task.id !== id),
+    }));
+  };
+
+  updateComplited = (id) => {
+    this.setState((state) => ({
+      tasks: state.tasks.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task
+      ),
+    }));
+  };
+
+  updatePriority = (id, priority) => {
+    this.setState((state) => ({
+      tasks: state.tasks.map((task) =>
+        task.id === id ? { ...task, priority } : task
+      ),
+    }));
+  };
+
+  updateFilter = (e) => {
+    this.setState({ filter: e.target.value });
   };
 
   render() {
+    const { tasks, filter } = this.state;
+
+    const filteredTasks = tasksFilter(tasks, filter);
+
     return (
       <div>
-        <SignUpForm onSignUp={this.handleFormSubmit} />
+        <TaskFilter value={filter} onUpdateFilter={this.updateFilter} />
+        <TaskEditor onTaskAdd={this.addTask} />
+        <TaskList
+          tasks={filteredTasks}
+          onDeleteTask={this.deleteTask}
+          onUpdateComplited={this.updateComplited}
+          onUpdatePriority={this.updatePriority}
+        />
       </div>
     );
   }
 }
-
-export default App;
