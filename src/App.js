@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import shortid from "shortid";
+
 import TaskFilter from "./components/TaskFilter/TaskFilter";
 import TaskEditor from "./components/TaskEditor/TaskEditor";
 import TaskList from "./components/TaskList/TaskList";
-import { tasksFilter } from "./utils/Priority";
-
-import Modal from "./components/App/App";
+import Modal from "./components/ModalApp/ModalApp";
+import { tasksFilter } from "./utils/TaskFilter";
 
 export default class App extends Component {
   state = {
@@ -67,7 +68,6 @@ export default class App extends Component {
 
     return (
       <div>
-        <Modal />
         <TaskFilter value={filter} onUpdateFilter={this.updateFilter} />
         <TaskEditor onTaskAdd={this.addTask} />
         <TaskList
@@ -76,6 +76,10 @@ export default class App extends Component {
           onUpdateComplited={this.updateComplited}
           onUpdatePriority={this.updatePriority}
         />
+        <footer>
+        <hr  />
+          <Modal />
+        </footer>
       </div>
     );
   }
