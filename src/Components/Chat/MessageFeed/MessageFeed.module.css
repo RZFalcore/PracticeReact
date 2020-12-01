@@ -1,0 +1,19 @@
+.list {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    height: 450px;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    border: 1px solid black;
+}
+
+.listItem {
+    padding: 0 5px;
+}
+
+.listItem p {
+    margin: 4px;
+    padding: 0px;
+}
