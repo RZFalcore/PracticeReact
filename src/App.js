@@ -1,4 +1,10 @@
 import React, { Component } from "react";
+import TaskFilter from "./components/TaskFilter/TaskFilter";
+import TaskEditor from "./components/TaskEditor/TaskEditor";
+import TaskList from "./components/TaskList/TaskList";
+import { tasksFilter } from "./utils/Priority";
+
+import Modal from "./components/App/App";
 
 export default class App extends Component {
   state = {
@@ -7,14 +13,14 @@ export default class App extends Component {
   };
 
   componentDidMount() {
-    const dataFromLC = localStorage.getItem("tasks")
-    dataFromLC && this.setState({ tasks: JSON.parse(dataFromLC) })
+    const dataFromLC = localStorage.getItem("tasks");
+    dataFromLC && this.setState({ tasks: JSON.parse(dataFromLC) });
   }
 
   componentDidUpdate(prevProps, prevState) {
     const tasks = this.state.tasks;
     if (prevState.tasks !== tasks) {
-      localStorage.setItem("tasks", JSON.stringify(tasks));;
+      localStorage.setItem("tasks", JSON.stringify(tasks));
     }
   }
 
@@ -61,6 +67,7 @@ export default class App extends Component {
 
     return (
       <div>
+        <Modal />
         <TaskFilter value={filter} onUpdateFilter={this.updateFilter} />
         <TaskEditor onTaskAdd={this.addTask} />
         <TaskList
