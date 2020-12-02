@@ -21,6 +21,7 @@ export default class Editor extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <input type="text" onChange={this.handleChange} value={text} />
+        <button type="submit">Send</button>
       </form>
     );
   }

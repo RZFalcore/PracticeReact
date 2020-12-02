@@ -3,7 +3,9 @@
     margin: 0px;
     padding: 0px;
     display: flex;
-    height: 450px;
+    min-height: 430px;
+    max-height: 430px;
+    overflow: scroll;
     flex-direction: column-reverse;
     justify-content: flex-start;
     border: 1px solid black;
