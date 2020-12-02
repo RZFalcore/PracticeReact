@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Modal from "../Modal/Modal";
 import Chat from "../Chat/Chat";
-import "./App.css";
+import "./LifeCycles.module.css";
 
-export default class App extends Component {
+export default class LifeCycles extends Component {
   state = { isModalOpen: false };
 
   handleModalOpen = () =>
