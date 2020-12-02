@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import Modal from "../Modal/Modal";
-import "./App.css";
+import Chat from "../Chat/Chat";
+import "./LifeCycles.module.css";
 
-export default class App extends Component {
+export default class LifeCycles extends Component {
   state = { isModalOpen: false };
 
   handleModalOpen = () =>
@@ -11,8 +12,8 @@ export default class App extends Component {
   render() {
     const { isModalOpen } = this.state;
     return (
-      <div>
-        Template
+      <>
+        <Chat />
         <button onClick={this.handleModalOpen}>Modal</button>
         {isModalOpen && (
           <Modal onModalClose={this.handleModalOpen}>
@@ -25,7 +26,7 @@ export default class App extends Component {
             </p>
           </Modal>
         )}
-      </div>
+      </>
     );
   }
 }

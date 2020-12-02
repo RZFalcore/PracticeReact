@@ -4,7 +4,8 @@ import shortid from "shortid";
 import TaskFilter from "./components/TaskFilter/TaskFilter";
 import TaskEditor from "./components/TaskEditor/TaskEditor";
 import TaskList from "./components/TaskList/TaskList";
-import Modal from "./components/ModalApp/ModalApp";
+//LifeCycles
+import LifeCycles from './components/LifeCycles/LifeCycles'
 import { tasksFilter } from "./utils/TaskFilter";
 
 export default class App extends Component {
@@ -76,10 +77,10 @@ export default class App extends Component {
           onUpdateComplited={this.updateComplited}
           onUpdatePriority={this.updatePriority}
         />
-        <footer>
         <hr  />
-          <Modal />
-        </footer>
+        <p>LifeCycles</p>
+        <hr />
+        <LifeCycles/>
       </div>
     );
   }
