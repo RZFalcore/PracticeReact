@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import shortid from "shortid";
 
-import TaskFilter from "./components/TaskFilter/TaskFilter";
-import TaskEditor from "./components/TaskEditor/TaskEditor";
-import TaskList from "./components/TaskList/TaskList";
+import TaskFilter from "./Components/TaskFilter/TaskFilter";
+import TaskEditor from "./Components/TaskEditor/TaskEditor";
+import TaskList from "./Components/TaskList/TaskList";
 //LifeCycles
-import LifeCycles from './components/LifeCycles/LifeCycles'
+import LifeCycles from "./Components/LifeCycles/LifeCycles";
 import { tasksFilter } from "./utils/TaskFilter";
-
+// restApi
+import News from "./Components/News/News";
 export default class App extends Component {
   state = {
     tasks: [],
@@ -77,10 +78,13 @@ export default class App extends Component {
           onUpdateComplited={this.updateComplited}
           onUpdatePriority={this.updatePriority}
         />
-        <hr  />
+        <hr />
         <p>LifeCycles</p>
         <hr />
-        <LifeCycles/>
+        <LifeCycles />
+        <hr />
+        <p>RestAPIs</p>
+        <News />
       </div>
     );
   }
