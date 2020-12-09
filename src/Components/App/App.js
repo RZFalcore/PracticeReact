@@ -1,10 +1,18 @@
-import React, { Component } from "react";
-import styles from "./App.module.css";
+import React from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
 
-export default class App extends Component {
-  state = {};
+import Home from "./Home/Home";
+import About from "./About/About";
+import Contact from "./Contact/Contact";
 
-  render() {
-    return <h1 className={styles.header}>App</h1>;
-  }
-}
+const App = () => (
+  <>
+    <Switch>
+      <Route path="/" exact component={Home} />
+      <Route path="/about" component={About} />
+      <Route path="/contact" component={Contact} />
+      <Redirect to="/" />
+    </Switch>
+  </>
+);
+export default App;
