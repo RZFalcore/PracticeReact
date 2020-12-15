@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
+import Test from "../Test/Test";
 
 export default class App extends Component {
   state = {  }
   render() {
-    return (
-      <h1>App</h1>
-    );
+    return <Test />;
   }
 }
