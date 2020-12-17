@@ -1,9 +1,12 @@
 import React, { Component } from "react";
-import {getCategoryFromLocation, getCategoryWithValue} from '../helpers/routingHelpers'
+import {
+  getCategoryFromLocation,
+  getCategoryWithValue,
+} from "../Helpers/routingHelpers";
 
 import ArticlesList from "../Components/App/ArticlesList/ArticlesList";
 import Select from "../Components/App/ArticleSelect/ArticleSelect";
-import * as API from "../services/API";
+import * as API from "../Services/API";
  
 const categories = [
   { value: "people", label: "People" },

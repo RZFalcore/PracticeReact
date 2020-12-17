@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 import Article from "../Components/App/Article/Article";
-import * as API from "../services/API";
-import { getCategoryFromLocationState } from "../helpers/routingHelpers";
+import * as API from "../Services/API";
+import { getCategoryFromLocationState } from "../Helpers/routingHelpers";
 export default class ArticlePage extends Component {
   state = { article: null };
 
