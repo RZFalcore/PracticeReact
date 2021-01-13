@@ -5,12 +5,19 @@ import Toolbar from "../Toolbar/Toolbar";
 import Togglable from "../Togglable/Togglable";
 
 import ThemeContext from "../../Context/Context";
+import Reader from "../Reader/Reader";
+import Publication from "../Reader/Publication";
+
+import publications from "../../data/publications.json";
 class App extends Component {
   state = {};
 
   render() {
     return (
       <div>
+        <Reader publications={publications}>
+          <Publication />
+        </Reader>
         <ThemeContext.Provider value="light">
           <div className="App">
             <Toolbar />
