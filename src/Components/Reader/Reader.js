@@ -12,12 +12,17 @@ class Reader extends Component {
   };
 
   handlePrev = () => {
-console.log('Prev');
-}
+    this.setState((state) => ({
+      currentIndx: state.currentIndx - 1,
+      publication: this.props.publications[state.currentIndx - 1],
+    }));
+  }
 
 handleNext = () => {
-  
-  console.log('Next');
+  this.setState((state) => ({
+    currentIndx: state.currentIndx + 1,
+    publication: this.props.publications[state.currentIndx + 1],
+  }));
   }
   render() {
     return (

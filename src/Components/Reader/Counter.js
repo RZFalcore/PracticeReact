@@ -1,14 +1,10 @@
 import React from "react";
-import Reader from "./Reader";
+import withReaderContext from "../../HOC/withReaderContext";
 
-const Counter = () => (
-  <Reader.Consumer>
-    {({ currentIndx, totalPublications }) => (
-      <p>
-        {currentIndx + 1}/{totalPublications}
-      </p>
-    )}
-  </Reader.Consumer>
+const Counter = ({  currentIndx, totalPublications  }) => (
+  <p>
+    {currentIndx + 1}/{totalPublications}
+  </p>
 );
 
-export default Counter;
+export default withReaderContext(Counter);

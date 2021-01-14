@@ -1,19 +1,17 @@
 import React from "react";
-import Reader from "./Reader";
+import withReaderContext from "../../HOC/withReaderContext";
 
-const Controls = () => (
-  <Reader.Consumer>
-    {({ onPrev, onNext }) => (
-      <section className="controls">
-        <button className="button" onClick={onPrev}>
-          Back
+const Controls = ({ onPrev, onNext }) => {
+  return (
+    <section className="controls">
+      <button className="button" onClick={onPrev}>
+        Back
         </button>
-        <button className="button" onClick={onNext}>
-          Forward
+      <button className="button" onClick={onNext}>
+        Forward
         </button>
-      </section>
-    )}
-  </Reader.Consumer>
-);
+    </section>
+  );
+};
 
-export default Controls;
+export default withReaderContext(Controls);
