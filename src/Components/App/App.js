@@ -9,6 +9,8 @@ import Reader from "../Reader/Reader";
 import Publication from "../Reader/Publication";
 
 import publications from "../../data/publications.json";
+import Controls from "../Reader/Controls";
+import Counter from "../Reader/Counter";
 class App extends Component {
   state = {};
 
@@ -17,6 +19,8 @@ class App extends Component {
       <div>
         <Reader publications={publications}>
           <Publication />
+          <Controls />
+          <Counter />
         </Reader>
         <ThemeContext.Provider value="light">
           <div className="App">

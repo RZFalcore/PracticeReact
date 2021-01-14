@@ -8,15 +8,20 @@ class Reader extends Component {
   state = {
     currentIndx: 0,
     publication: this.props.publications[0],
+    totalPublications: this.props.publications.length
   };
 
-  //   componentDidMount() {
-  //     this.setState({ publication: this.props.publications[0] });
-  //   }
+  handlePrev = () => {
+console.log('Prev');
+}
 
+handleNext = () => {
+  
+  console.log('Next');
+  }
   render() {
     return (
-      <ReaderContext.Provider value={{ ...this.state }}>
+      <ReaderContext.Provider value={{ ...this.state, onPrev : this.handlePrev, onNext: this.handleNext }}>
         <div className="reader">{this.props.children}</div>
       </ReaderContext.Provider>
     );
