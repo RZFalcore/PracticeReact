@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { CSSTransition } from "react-transition-group";
+import css from "./Menu.module.css";
 
 export default class Menu extends Component {
   state = { isOpen: false };
@@ -15,12 +16,7 @@ export default class Menu extends Component {
       <div className="container">
         <button onClick={this.handleOpen}>&#9776;</button>
 
-        <CSSTransition
-          in={isOpen}
-          timeout={2000}
-          classNames="fade"
-          unmountOnExit
-        >
+        <CSSTransition in={isOpen} timeout={200} classNames={css} unmountOnExit>
           <div className="dropdown">
             <ul className="list">
               <li>Option 1</li>
