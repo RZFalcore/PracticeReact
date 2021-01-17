@@ -16,6 +16,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
     "react-select": "^3.1.1",
+    "react-transition-group": "^4.4.1",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
@@ -43,9 +44,9 @@
     ]
   },
   "devDependencies": {
+    "axios": "^0.21.0",
     "faker": "^5.1.0",
     "shortid": "^2.2.16",
-    "uuid": "^8.3.1",
-    "axios": "^0.21.0"
+    "uuid": "^8.3.1"
   }
 }
