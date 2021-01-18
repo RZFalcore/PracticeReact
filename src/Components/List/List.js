@@ -2,7 +2,7 @@ import React from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import Button from "../Button/Button";
 import css from "./List.module.css";
-import slide from "./transitions/slide.module.css";
+import slide from "../../transitions/slide.module.css";
 
 const List = ({ items, onDelete }) => (
   <TransitionGroup component="ul" className={css.list}>

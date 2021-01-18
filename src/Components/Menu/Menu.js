@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { CSSTransition } from "react-transition-group";
-import css from "./Menu.module.css";
+import css from "../../transitions/fade.module.css";
 
 export default class Menu extends Component {
   state = { isOpen: false };
