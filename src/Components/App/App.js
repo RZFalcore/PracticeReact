@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import StepSelector from "../StepSelector/StepSelector";
-import Timer from "../Timer/Timer";
+import Timer from "../Timer/TimerContainer";
 class App extends Component {
   state = {};
   

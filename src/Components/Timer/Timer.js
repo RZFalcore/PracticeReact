@@ -1,6 +1,5 @@
 import React from "react";
-import { connect } from "react-redux";
-import {increment, decrement} from '../../redux/timerActions'
+
 const Timer = ({ value, onIncrement, onDecrement }) => (
   <div
     style={{
@@ -18,12 +17,4 @@ const Timer = ({ value, onIncrement, onDecrement }) => (
   </div>
 );
 
-const mapStateToProps = (state) => ({ value: state });
-
-const mapDispatchToProps = dispatch =>({
-  onIncrement: () => dispatch(increment(10)),
-  onDecrement: () => dispatch(decrement(10)),
-})
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(Timer);
+export default Timer;

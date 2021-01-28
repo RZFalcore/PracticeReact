@@ -1,5 +1,5 @@
-import { time } from "faker";
 import { Type } from "./timerActions";
+
 
 const timerReducer = (state = 0, action) => {
   switch (action.type) {
