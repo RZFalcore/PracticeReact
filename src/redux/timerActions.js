@@ -1,6 +1,7 @@
 export const Type = {
   INCREMENT: "INCREMENT",
   DECREMENT: "DECREMENT",
+  CHANGE_STEP: "CHANGE_STEP",
 };
 
 export const increment = (value) => {
@@ -16,3 +17,8 @@ export const decrement = (value) => {
     payload: value,
   };
 };
+
+export const changeStep = (step) => ({
+  type: Type.CHANGE_STEP,
+  payload: step,
+});

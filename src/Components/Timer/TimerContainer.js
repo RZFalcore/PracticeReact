@@ -3,8 +3,8 @@ import { increment, decrement } from "../../redux/timerActions";
 import Timer from "./Timer";
 
 const mapStateToProps = (state) => ({
-  value: state.value,
-  step: state.step.value,
+  value: state.timer.value,
+  step: state.timer.step.value,
 });
 
 const mapDispatchToProps = (dispatch) => ({
