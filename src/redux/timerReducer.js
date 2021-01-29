@@ -11,7 +11,7 @@ const valueReducer = (state = 0, { type, payload }) => {
     case Type.INCREMENT:
       return state + payload;
     case Type.DECREMENT:
-      return value - payload;
+      return state - payload;
     default:
       return state;
   }
