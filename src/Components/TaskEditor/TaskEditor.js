@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import tasksActions from "../../redux/tasks/tasksActions";
 class TaskEditor extends Component {
   state = { text: "" };
 
@@ -8,7 +9,13 @@ class TaskEditor extends Component {
   };
 
   handleSubmit = (e) => {
-    e.preventDefault();
+      e.preventDefault();
+
+      const { text } = this.state;
+
+      this.props.onAddTask(text);
+
+      this.setState({ text: "" });
   };
 
   render() {
@@ -23,13 +30,17 @@ class TaskEditor extends Component {
             onChange={this.handleChange}
           />
         </label>
+        <button className="taskEditor-button" type="submit">
+          Add task
+        </button>
       </form>
     );
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({});
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  onAddTask: tasksActions.addTask,
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(TaskEditor);
+export default connect(null, mapDispatchToProps)(TaskEditor);

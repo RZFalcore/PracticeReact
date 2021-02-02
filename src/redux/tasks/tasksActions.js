@@ -4,7 +4,7 @@ import Type from "./tasksActionsTypes";
 const addTask = (text) => ({
   type: Type.ADD_TASK,
   payload: {
-    id: uuod,
+    id: uuid(),
     text,
     complited: false,
   },
