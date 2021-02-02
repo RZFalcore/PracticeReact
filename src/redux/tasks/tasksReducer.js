@@ -15,7 +15,14 @@ const items = (state = [], { type, payload }) => {
       return state;
   }
 };
-const filter = (state = "", action) => state;
+const filter = (state = "", { type, payload }) => {
+  switch (type) {
+    case Type.CHANGE_FILTER:
+      return payload.filter;
+    default:
+      return state;
+  }
+};
 
 export default combineReducers({ items, filter });
 // changeFilter = (filter) => {

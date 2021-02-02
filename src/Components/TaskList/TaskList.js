@@ -17,9 +17,14 @@ const TaskList = ({ tasks, onRemoveTask, onUpdateTask }) => (
   </ul>
 );
 
-const mapStateToProps = (state) => ({
-  tasks: state.tasks.items,
-});
+const mapStateToProps = ({ tasks }) => {
+  const filteredTasks = tasks.items.filter((task) =>
+    task.text.toLowerCase().includes(tasks.filter.toLowerCase())
+  );
+  return {
+    tasks: filteredTasks,
+  };
+};
 
 const mapDispatchToProps = {
   onRemoveTask: tasksActions.removeTask,

@@ -17,7 +17,7 @@ class App extends Component {
       <div>
         <Layout>
           <TaskEditor />
-          {/* <TaskFilter /> */}
+          <TaskFilter />
           <TaskList />
         </Layout>
       </div>
