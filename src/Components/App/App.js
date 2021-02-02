@@ -1,25 +1,26 @@
 import React, { Component } from "react";
-import StepSelector from "../StepSelector/StepSelector";
-import Timer from "../Timer/TimerContainer";
+import Layout from "../Layout/Layout";
+import TaskEditor from '../TaskEditor/TaskEditor';
+import TaskFilter from '../Filter/Filter';
+import TaskList from '../TaskList/TaskList'
 class App extends Component {
-  state = {};
   
-  render() {
-    return (
-      <div
-        style={{
-          width: "400px",
-          margin: "40px auto",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-        }}
-      >
-        App
-        <Timer />
-        <StepSelector />
-      </div>
+  getFilteredTasks = () => {
+    const { tasks, filter } = this.state;
+
+    return tasks.filter((task) =>
+      task.text.toLowerCase().includes(filter.toLowerCase())
     );
+  };
+
+  render() {
+    return (<div>
+          {/* <Layout  >
+            <TaskEditor />
+            <TaskFilter />
+            <TaskList/>   
+          </Layout> */}
+        </div>);
   }
 }
 

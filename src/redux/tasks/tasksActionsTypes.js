@@ -1,0 +1,7 @@
+const Type = {
+  ADD_TASK: "ADD_TASK",
+  REMOVE_TASK: "REMOVE_TASK",
+  TOGGLE_COMPLITED: "TOGGLE_COMPLITED",
+  CHANGE_FILTER: "CHANGE_FILTER",
+};
+export default Type;
