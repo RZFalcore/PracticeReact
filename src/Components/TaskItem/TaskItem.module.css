@@ -1,0 +1,30 @@
+.listItem {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.listItemChecked {
+    composes: listItem;
+    background-color: green;
+    color: white;
+}
+
+.listItemButton {
+    background-color: rgb(57, 57, 236);
+    color: white;
+    border: 0px;
+    padding: 2px;
+    border-radius: 4px;
+    margin: 0 10px;
+}
+
+.listItemText {
+    width: 50%;
+}
+
+.listItemLabel {
+    width: 40%;
+}
