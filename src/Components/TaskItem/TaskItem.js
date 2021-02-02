@@ -9,7 +9,7 @@ const TaskItem = ({ id, text, complited, onUpdate, onRemove }) => (
         type="checkbox"
         name="complited"
         checked={complited}
-        onClick={onUpdate}
+        onChange={onUpdate}
       />
       Complited
       <button className={styles.listItemButton} onClick={onRemove}>
