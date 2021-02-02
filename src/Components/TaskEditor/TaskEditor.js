@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import tasksActions from "../../redux/tasks/tasksActions";
+import styles from "./TaskEditor.module.css";
 class TaskEditor extends Component {
   state = { text: "" };
 
@@ -20,17 +21,17 @@ class TaskEditor extends Component {
 
   render() {
     return (
-      <form className="taskEditor" onSubmit={this.handleSubmit}>
-        <label className="taskEditor-label">
+      <form className={styles.taskEditor} onSubmit={this.handleSubmit}>
+        <label className={styles.taskEditorLabel}>
           Text
           <input
             type="text"
-            className="taskEditor-input"
+            className={styles.taskEditorInput}
             value={this.state.text}
             onChange={this.handleChange}
           />
         </label>
-        <button className="taskEditor-button" type="submit">
+        <button className={styles.taskEditorButton} type="submit">
           Add task
         </button>
       </form>

@@ -18,9 +18,12 @@ const TaskList = ({ tasks, onRemoveTask, onUpdateTask }) => (
 );
 
 const mapStateToProps = ({ tasks }) => {
-  const filteredTasks = tasks.items.filter((task) =>
-    task.text.toLowerCase().includes(tasks.filter.toLowerCase())
+  const normalizedFilter = tasks.filter.toLowerCase();
+
+  const filteredTasks = tasks.items.filter(({ text }) =>
+    text.toLowerCase().includes(normalizedFilter)
   );
+
   return {
     tasks: filteredTasks,
   };
