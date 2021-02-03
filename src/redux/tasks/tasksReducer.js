@@ -9,38 +9,17 @@ const toggle = (state, action) =>
   state.map((task) =>
     task.id === action.payload ? { ...task, complited: !task.complited } : task
   );
-const filter = (state, action) => action.payload;
+const filterTask = (state, action) => action.payload;
 
-const tasksReducer = createReducer([], {
+const items = createReducer([], {
   [tasksActions.addTask]: add,
   [tasksActions.removeTask]: remove,
   [tasksActions.toggleComplited]: toggle,
 });
 
-const filterReducer = createReducer("", {
-  [tasksActions.changeFilter]: filter,
+const filter = createReducer("", {
+  [tasksActions.changeFilter]: filterTask,
 });
-// const items = (state = [], { type, payload }) => {
-//   switch (type) {
-//     case tasksActions.addTask.type:
-//       return [...state, payload];
-//     case tasksActions.removeTask.type:
-//       return state.filter(({ id }) => id !== payload);
-//     case tasksActions.toggleComplited.type:
-//       return state.map((task) =>
-//         task.id === payload ? { ...task, complited: !task.complited } : task
-//       );
-//     default:
-//       return state;
-//   }
-// };
-// const filter = (state = "", { type, payload }) => {
-//   switch (type) {
-//     case tasksActions.changeFilter.type:
-//       return payload;
-//     default:
-//       return state;
-//   }
-// };
 
-export default combineReducers({ items: tasksReducer, filter: filterReducer });
+
+export default combineReducers({ items, filter });

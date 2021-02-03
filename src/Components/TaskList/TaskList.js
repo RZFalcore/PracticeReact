@@ -1,19 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import tasksActions from "../../redux/tasks/tasksActions";
 import TaskListItem from "../TaskItem/TaskItem";
 import styles from "./TaskList.module.css";
 
-const TaskList = ({ tasks, onRemoveTask, onUpdateTask }) => (
+const TaskList = ({ tasks }) => (
   <ul className={styles.taskList}>
-    {tasks.map(({ id, text, complited }) => (
-      <TaskListItem
-        key={id}
-        text={text}
-        complited={complited}
-        onRemove={() => onRemoveTask(id)}
-        onUpdate={() => onUpdateTask(id)}
-      />
+    {tasks.map(({ id }) => (
+      <TaskListItem key={id} id={id} />
     ))}
   </ul>
 );
@@ -30,9 +23,5 @@ const mapStateToProps = ({ tasks }) => {
   };
 };
 
-const mapDispatchToProps = {
-  onRemoveTask: tasksActions.removeTask,
-  onUpdateTask: tasksActions.toggleComplited,
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(TaskList);
+export default connect(mapStateToProps)(TaskList);
