@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import tasksActions from "../../redux/tasks/tasksActions";
+import { changeFilter } from "../../redux/tasks/tasksActions";
 
 const Filter = ({ value, onFilterChange }) => (
   <div>
@@ -18,7 +18,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  onFilterChange: tasksActions.changeFilter,
+  onFilterChange: changeFilter,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);

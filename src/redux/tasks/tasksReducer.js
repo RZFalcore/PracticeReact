@@ -1,6 +1,11 @@
 import { combineReducers } from "redux";
 import { createReducer } from "@reduxjs/toolkit";
-import tasksActions from "./tasksActions";
+import {
+  addTask,
+  removeTask,
+  toggleComplited,
+  changeFilter,
+} from "./tasksActions";
 
 const add = (state, action) => [...state, action.payload];
 const remove = (state, action) =>
@@ -12,13 +17,13 @@ const toggle = (state, action) =>
 const filterTask = (state, action) => action.payload;
 
 const items = createReducer([], {
-  [tasksActions.addTask]: add,
-  [tasksActions.removeTask]: remove,
-  [tasksActions.toggleComplited]: toggle,
+  [addTask]: add,
+  [removeTask]: remove,
+  [toggleComplited]: toggle,
 });
 
 const filter = createReducer("", {
-  [tasksActions.changeFilter]: filterTask,
+  [changeFilter]: filterTask,
 });
 
 

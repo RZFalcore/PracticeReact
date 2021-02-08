@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import tasksActions from "../../redux/tasks/tasksActions";
+import { removeTask, toggleComplited } from "../../redux/tasks/tasksActions";
 
 import styles from "./TaskItem.module.css";
 
@@ -28,8 +28,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  onRemove: () => dispatch(tasksActions.removeTask(ownProps.id)),
-  onUpdate: () => dispatch(tasksActions.toggleComplited(ownProps.id)),
+  onRemove: () => dispatch(removeTask(ownProps.id)),
+  onUpdate: () => dispatch(toggleComplited(ownProps.id)),
 });
 
 
