@@ -1,16 +1,19 @@
 // import {createStore, combineReducers } from "redux";
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import tasksReducer from "./tasks/tasksReducer";
+import logger from "redux-logger";
 
-// const rootReducer = combineReducers({
-//   tasks: tasksReducer,
-// });
+const defaultMiddlewares = getDefaultMiddleware();
 
-// const store = createStore(
-//   rootReducer,
-//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-// );
+// const loggerMiddleware = (store) => (next) => (action) => {
+//   console.group(action.type);
+//   console.info("Dispatching: ", action);
+//   console.groupEnd(action.type);
+// };
 
-const store = configureStore({ reducer: { tasks: tasksReducer } });
+const store = configureStore({
+  reducer: { tasks: tasksReducer },
+  middleware: [...defaultMiddlewares, logger],
+});
 
 export default store;
