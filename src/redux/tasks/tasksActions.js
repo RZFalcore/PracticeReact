@@ -10,10 +10,3 @@ export const removeTask = createAction("tasks/removeTask");
 export const toggleComplited = createAction("tasks/toggleComplited");
 
 export const changeFilter = createAction("tasks/changeFilter");
-
-// export default {
-//   addTask,
-//   removeTask,
-//   toggleComplited,
-//   changeFilter,
-// };
