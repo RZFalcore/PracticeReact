@@ -3,8 +3,9 @@ import { connect } from "react-redux";
 import TaskListItem from "../TaskItem/TaskItem";
 import styles from "./TaskList.module.css";
 
-const TaskList = ({ tasks }) => (
+const TaskList = ({ tasks, loading }) => (
   <ul className={styles.taskList}>
+    {loading && <h2>LOADING...</h2>}
     {tasks.map(({ id }) => (
       <TaskListItem key={id} id={id} />
     ))}
@@ -20,6 +21,7 @@ const mapStateToProps = ({ tasks }) => {
 
   return {
     tasks: filteredTasks,
+    loading: tasks.loading,
   };
 };
 
