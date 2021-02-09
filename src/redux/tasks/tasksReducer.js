@@ -11,6 +11,9 @@ import {
   fetchTasksRequest,
   fetchTasksSuccess,
   fetchTasksError,
+  removeTaskRequest,
+  removeTaskSuccess,
+  removeTaskError,
 } from "./tasksActions";
 
 // const fetchTasks = (state, action) => action.payload;
@@ -31,7 +34,7 @@ const filterTask = (state, action) => action.payload;
 const items = createReducer([], {
   [fetchTasksSuccess]: fetchTasks,
   [addTaskSuccess]: add,
-  [removeTask]: remove,
+  [removeTaskSuccess]: remove,
   [toggleComplited]: toggle,
 });
 
@@ -46,6 +49,9 @@ const loading = createReducer(false, {
   [addTaskRequest]: () => true,
   [addTaskSuccess]: () => false,
   [addTaskError]: () => false,
+  [removeTaskRequest]: () => true,
+  [removeTaskSuccess]: () => false,
+  [removeTaskError]: () => false,
 });
 
 export default combineReducers({ items, filter, loading });

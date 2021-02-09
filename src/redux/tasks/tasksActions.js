@@ -31,6 +31,11 @@ export const fetchTasksRequest = createAction("tasks/fetchTasksRequest");
 export const fetchTasksSuccess = createAction("tasks/fetchTasksSuccess");
 export const fetchTasksError = createAction("tasks/fetchTasksError");
 
+export const removeTaskRequest = createAction("tasks/removeTaskRequest");
+export const removeTaskSuccess = createAction("tasks/removeTaskSuccess");
+export const removeTaskError = createAction("tasks/removeTaskError");
+
+
 export const removeTask = createAction("tasks/removeTask");
 
 export const toggleComplited = createAction("tasks/toggleComplited");
