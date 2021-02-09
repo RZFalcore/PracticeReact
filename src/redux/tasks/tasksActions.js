@@ -1,25 +1,31 @@
 import { createAction } from "@reduxjs/toolkit";
-import { v4 as uuid } from "uuid";
+// No need for id, created at backend
+// import { v4 as uuid } from "uuid";
 
 //----------------------------------------------------------------------------
 // Operation 
-const fetchData = () => dispatch => {
-  fetch().then(data => dispatch({ type: "fetchData", payload: data }))
-}
+// const fetchData = () => dispatch => {
+//   fetch().then(data => dispatch({ type: "fetchData", payload: data }))
+// }
 //----------------------------------------------------------------------------
 // Redux Thunk
-const reduxThunk = store => next => action => {
-  if (typeof action === "function") {
-    action(store.dispatch, store.getState);
-    return 
-  }
-  next(action)
-}
+// const reduxThunk = store => next => action => {
+//   if (typeof action === "function") {
+//     action(store.dispatch, store.getState);
+//     return 
+//   }
+//   next(action)
+// }
 //----------------------------------------------------------------------------
 
-export const addTask = createAction("tasks/addTask", (text) => ({
-  payload: { id: uuid(), text, complited: false },
-}));
+export const addTaskRequest = createAction("tasks/addTaskRequest");
+export const addTaskSuccess = createAction("tasks/addTaskSuccess");
+export const addTaskError = createAction("tasks/addTaskError");
+
+// Moved to operation
+// export const addTask = createAction("tasks/addTask", (text) => ({
+//   payload: { id: uuid(), text, complited: false },
+// }));
 
 export const removeTask = createAction("tasks/removeTask");
 
