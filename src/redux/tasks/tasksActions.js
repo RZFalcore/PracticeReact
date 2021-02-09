@@ -27,6 +27,10 @@ export const addTaskError = createAction("tasks/addTaskError");
 //   payload: { id: uuid(), text, complited: false },
 // }));
 
+export const fetchTasksRequest = createAction("tasks/fetchTasksRequest");
+export const fetchTasksSuccess = createAction("tasks/fetchTasksSuccess");
+export const fetchTasksError = createAction("tasks/fetchTasksError");
+
 export const removeTask = createAction("tasks/removeTask");
 
 export const toggleComplited = createAction("tasks/toggleComplited");

@@ -8,7 +8,13 @@ import {
   changeFilter,
   addTaskRequest,
   addTaskError,
+  fetchTasksRequest,
+  fetchTasksSuccess,
+  fetchTasksError,
 } from "./tasksActions";
+
+// const fetchTasks = (state, action) => action.payload;
+const fetchTasks = (state, action) => action.payload;
 
 const add = (state, action) => [...state, action.payload];
 
@@ -23,6 +29,7 @@ const filterTask = (state, action) => action.payload;
 
 
 const items = createReducer([], {
+  [fetchTasksSuccess]: fetchTasks,
   [addTaskSuccess]: add,
   [removeTask]: remove,
   [toggleComplited]: toggle,
@@ -33,6 +40,9 @@ const filter = createReducer("", {
 });
 
 const loading = createReducer(false, {
+  [fetchTasksRequest]: () => true,
+  [fetchTasksSuccess]: () => false,
+  [fetchTasksError]: () => false,
   [addTaskRequest]: () => true,
   [addTaskSuccess]: () => false,
   [addTaskError]: () => false,

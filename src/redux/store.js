@@ -1,7 +1,7 @@
 // import {createStore, combineReducers } from "redux";
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import tasksReducer from "./tasks/tasksReducer";
-import logger from "redux-logger";
+// import logger from "redux-logger";
 
 const defaultMiddlewares = getDefaultMiddleware();
 
@@ -16,7 +16,8 @@ const defaultMiddlewares = getDefaultMiddleware();
 
 const store = configureStore({
   reducer: { tasks: tasksReducer },
-  middleware: [...defaultMiddlewares, logger],
+  middleware: [...defaultMiddlewares],
+  // middleware: [...defaultMiddlewares, logger],
 });
 
 export default store;

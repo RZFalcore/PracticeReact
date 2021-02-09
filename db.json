@@ -1,11 +1,12 @@
 {
   "tasks": [
     {
-      "text": "qwe",
+      "text": "asdasd",
+      "complited": false,
       "id": 1
     },
     {
-      "text": "qweqwew",
+      "text": "",
       "complited": false,
       "id": 2
     },
@@ -15,29 +16,9 @@
       "id": 3
     },
     {
-      "text": "asdasd",
+      "text": "sasds",
       "complited": false,
       "id": 4
-    },
-    {
-      "text": "asdsad",
-      "complited": false,
-      "id": 5
-    },
-    {
-      "text": "asdasd",
-      "complited": false,
-      "id": 6
-    },
-    {
-      "text": "asdasd",
-      "complited": false,
-      "id": 7
-    },
-    {
-      "text": "sadasds",
-      "complited": false,
-      "id": 8
     }
   ]
 }
