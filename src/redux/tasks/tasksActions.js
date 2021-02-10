@@ -35,9 +35,17 @@ export const removeTaskRequest = createAction("tasks/removeTaskRequest");
 export const removeTaskSuccess = createAction("tasks/removeTaskSuccess");
 export const removeTaskError = createAction("tasks/removeTaskError");
 
+export const toggleComplitedRequest = createAction(
+  "tasks/toggleComplitedRequest"
+);
+export const toggleComplitedSuccess = createAction(
+  "tasks/toggleComplitedSuccess"
+);
+export const toggleComplitedError = createAction("tasks/toggleComplitedError");
 
-export const removeTask = createAction("tasks/removeTask");
 
-export const toggleComplited = createAction("tasks/toggleComplited");
+// export const removeTask = createAction("tasks/removeTask");
+
+// export const toggleComplited = createAction("tasks/toggleComplited");
 
 export const changeFilter = createAction("tasks/changeFilter");

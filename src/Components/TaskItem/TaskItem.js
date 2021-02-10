@@ -1,7 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { removeTaskOperation } from "../../redux/tasks/tasksOperations";
-import { toggleComplited } from "../../redux/tasks/tasksActions";
+import {
+  removeTaskOperation,
+  toggleComplitedOperation,
+} from "../../redux/tasks/tasksOperations";
 import styles from "./TaskItem.module.css";
 
 const TaskItem = ({ id, text, complited, onUpdate, onRemove }) => (
@@ -29,7 +31,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   onRemove: () => dispatch(removeTaskOperation(ownProps.id)),
-  onUpdate: () => dispatch(toggleComplited(ownProps.id)),
+  onUpdate: () => dispatch(toggleComplitedOperation(ownProps.id)),
 });
 
 

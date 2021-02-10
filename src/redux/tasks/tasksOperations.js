@@ -9,6 +9,9 @@ import {
   removeTaskRequest,
   removeTaskSuccess,
   removeTaskError,
+  toggleComplitedRequest,
+  toggleComplitedSuccess,
+  toggleComplitedError,
 } from "./tasksActions";
 
 export const addTaskOperation = (text) => (dispatch) => {
@@ -36,8 +39,14 @@ export const removeTaskOperation = (id) => (dispatch) => {
   dispatch(removeTaskRequest());
   axios
     .delete(`http://localhost:3001/tasks/${id}`)
-    .then((res) => {
-      return dispatch(removeTaskSuccess(id));
-    })
+    .then(() => dispatch(removeTaskSuccess(id)))
     .catch((e) => dispatch(removeTaskError(e)));
+};
+
+export const toggleComplitedOperation = (id) => (dispatch) => {
+  dispatch(toggleComplitedRequest());
+  axios
+    .patch(`http://localhost:3001/tasks/${id}`, { complited: true })
+    .then(({ data }) => dispatch(toggleComplitedSuccess(data)))
+    .catch((e) => dispatch(toggleComplitedError(e)));
 };
