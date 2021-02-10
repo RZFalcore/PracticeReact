@@ -27,7 +27,6 @@ export const fetchTasksOperation = () => (dispatch) => {
   axios
     .get("http://localhost:3001/tasks")
     .then(({ data }) => {
-      console.log(data);
       return dispatch(fetchTasksSuccess(data));
     })
     .catch((e) => dispatch(fetchTasksError(e)));
@@ -36,10 +35,9 @@ export const fetchTasksOperation = () => (dispatch) => {
 export const removeTaskOperation = (id) => (dispatch) => {
   dispatch(removeTaskRequest());
   axios
-    .delete(`http://localhost:3001/${id}`)
+    .delete(`http://localhost:3001/tasks/${id}`)
     .then((res) => {
-      console.log(res);
-      return dispatch(removeTaskSuccess({ id: id }));
+      return dispatch(removeTaskSuccess(id));
     })
     .catch((e) => dispatch(removeTaskError(e)));
 };

@@ -1,9 +1,7 @@
 import { combineReducers } from "redux";
 import { createReducer } from "@reduxjs/toolkit";
 import {
-  // addTask,
   addTaskSuccess,
-  removeTask,
   toggleComplited,
   changeFilter,
   addTaskRequest,
