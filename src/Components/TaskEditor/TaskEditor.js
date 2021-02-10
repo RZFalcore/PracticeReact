@@ -16,7 +16,6 @@ class TaskEditor extends Component {
       const { text } = this.state;
 
       this.props.onAddTask(text);
-
       this.setState({ text: "" });
   };
 
