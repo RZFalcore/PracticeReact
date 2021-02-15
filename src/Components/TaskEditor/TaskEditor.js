@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-// import { addTask } from "../../redux/tasks/tasksActions";
 import { addTaskOperation } from "../../redux/tasks/tasksOperations";
 import styles from "./TaskEditor.module.css";
 class TaskEditor extends Component {
