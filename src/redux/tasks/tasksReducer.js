@@ -16,7 +16,6 @@ import {
   changeFilter,
 } from "./tasksActions";
 
-// const fetchTasks = (state, action) => action.payload;
 const fetchTasks = (state, action) => action.payload;
 
 const add = (state, action) => [...state, action.payload];

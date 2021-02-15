@@ -26,7 +26,6 @@ export const addTaskOperation = (text) => (dispatch) => {
     .catch((err) => dispatch(addTaskError(err)));
 };
 
-// Operation is optional)
 export const fetchTasksOperation = () => (dispatch) => {
   dispatch(fetchTasksRequest());
   axios
