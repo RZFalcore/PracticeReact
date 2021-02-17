@@ -8,6 +8,7 @@ import styles from "./TaskList.module.css";
 class TaskList extends Component {
   componentDidMount() {
     this.props.onFetchTasks();
+    console.log("TaskList rendered!");
   }
 
   render() {
