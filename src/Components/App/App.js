@@ -11,13 +11,11 @@ function App({ counter,countIncrement }) {
   return (
     <div>
       <button type="button" onClick={() => countIncrement()}>
-        
         Counter value: {counter}
-      
       </button>
       <Layout>
         <TaskEditor />
-        <TaskFilter />
+        <Filter />
         <TaskList />
       </Layout>
     </div>
