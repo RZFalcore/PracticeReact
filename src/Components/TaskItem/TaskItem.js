@@ -4,10 +4,11 @@ import {
   removeTaskOperation,
   toggleComplitedOperation,
 } from "../../redux/tasks/tasksOperations";
+import tasksSelectors from "../../redux/tasks/tasksSelectors";
 import styles from "./TaskItem.module.css";
 
-const TaskItem = ({ id, text, complited, onUpdate, onRemove }) => (
-  <li key={id} className={complited ? styles.listItemChecked : styles.listItem}>
+const TaskItem = ({ text, complited, onUpdate, onRemove }) => (
+  <li className={complited ? styles.listItemChecked : styles.listItem}>
     <p className={styles.listItemText}>{text}</p>
     <label className={styles.listItemLabel}>
       <input
@@ -25,7 +26,7 @@ const TaskItem = ({ id, text, complited, onUpdate, onRemove }) => (
 );
 
 const mapStateToProps = (state, ownProps) => {
-  const item = state.tasks.items.find((task) => task.id === ownProps.id);
+  const item = tasksSelectors.getTaskById(state, ownProps.id);
   return { ...item };
 };
 

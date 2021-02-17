@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import TaskListItem from "../TaskItem/TaskItem";
 import { fetchTasksOperation } from "../../redux/tasks/tasksOperations";
+import tasksSelectors from "../../redux/tasks/tasksSelectors";
 import styles from "./TaskList.module.css";
 
 class TaskList extends Component {
   componentDidMount() {
     this.props.onFetchTasks();
+    console.log("TaskList rendered!");
   }
 
   render() {
@@ -22,16 +24,10 @@ class TaskList extends Component {
   }
 }
 
-const mapStateToProps = ({ tasks }) => {
-  const normalizedFilter = tasks.filter.toLowerCase();
-
-  const filteredTasks = tasks.items.filter(({ text }) =>
-    text.toLowerCase().includes(normalizedFilter)
-  );
-
+const mapStateToProps = (state) => {
   return {
-    tasks: filteredTasks,
-    loading: tasks.loading,
+    tasks: tasksSelectors.getVisibleTasks(state),
+    loading: tasksSelectors.getLoading(state),
   };
 };
 const mapDispatchToProps = {
