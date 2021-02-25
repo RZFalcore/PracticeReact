@@ -4,17 +4,19 @@ import Home from "../../Containers/Home/Home";
 import Registartion from "../../Containers/Registration/Registration";
 import Login from "../../Containers/Login/Login";
 import {navigation} from "../../constants.js";
+import Header from "../Header/Header";
+import "./App.module.css";
 
 
 function App() {
   return (
     <div>
-      App
+      <Header />
       <Switch>
         <Route exact path={navigation.home} component={Home}></Route>
         <Route path={navigation.registration} component={Registartion}></Route>
         <Route path={navigation.login} component={Login}></Route>
-       </Switch>
+      </Switch>
     </div>
   );
 }
