@@ -10,10 +10,10 @@ import counterActions from '../../redux/counter/counterActions'
 function App({ counter,countIncrement }) {
   return (
     <div>
-      <button type="button" onClick={() => countIncrement()}>
-        Counter value: {counter}
-      </button>
       <Layout>
+          <button type="button" onClick={() => countIncrement()}>
+            Counter value: {counter}
+          </button>
         <TaskEditor />
         <Filter />
         <TaskList />
