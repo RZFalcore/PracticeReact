@@ -16,12 +16,13 @@ function Registartion() {
   const formSubmit = (e) => {
     e.preventDefault();
     console.log(form);
+    setForm(initialState);
   };
 
   return (
     <div>
       <h1>Registration page</h1>
-      <form className="registration-form">
+      <form className="registration-form" onSubmit={formSubmit}>
         <input
           type="text"
           placeholder="Name"
@@ -43,7 +44,7 @@ function Registartion() {
           value={form.password}
           onChange={inputHandler}
         />
-        <button type="submit" onClick={formSubmit}>
+        <button type="submit">
           Sign up
         </button>
         <p>
