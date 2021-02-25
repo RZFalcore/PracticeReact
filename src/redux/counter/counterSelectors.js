@@ -1,3 +1,5 @@
 const getValue = (state) => state.counter;
 
-export default { getValue };
+const counterSelectors = { getValue };
+
+export default counterSelectors;

@@ -1,24 +1,23 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "./Registartion.css";
+import "./Login.css";
 import { navigation } from "../../constants.js";
 
-function Registartion() {
+function Login() {
   return (
     <div>
-      <h1>Registration page</h1>
+      <h1>Login page</h1>
       <form>
-        <input type="text" placeholder="Name" name="name" />
         <input type="email" placeholder="Email" name="email" />
         <input type="password" placeholder="Password" name="password" />
-        <button type="submit">Sign up</button>
+        <button type="submit">Log in</button>
         <p>
-          If you already have account try to
-          <NavLink to={navigation.login}>log in</NavLink>
+          Don`t have an account?{" "}
+          <NavLink to={navigation.registration}>Register here!</NavLink>
         </p>
       </form>
     </div>
   );
 }
 
-export default Registartion;
+export default Login;
