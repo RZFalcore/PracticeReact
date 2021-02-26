@@ -11,3 +11,11 @@ export const registrationOperation = (userData) => (dispatch) => {
     .then((res) => dispatch(getTokenSuccess(res.data.token)))
     .catch((e) => dispatch(getTokenError(e)));
 };
+
+export const loginOperation = (userData) => (dispatch) => {
+  dispatch(getTokenRequest());
+  axios
+    .post("/users/login", userData)
+    .then((res) => dispatch(getTokenSuccess(res.data.token)))
+    .catch((e) => dispatch(getTokenError(e)));
+};
