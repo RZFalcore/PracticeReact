@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { registrationOperation } from "../../redux/auth/authOperations";
 import { navigation } from "../../constants.js";
 import "./Registration.css";
+import SignUp from "../../Components/SignUp/SignUp";
 
 const initialState = { name: "", email: "", password: "" };
 
@@ -25,8 +26,9 @@ function Registartion() {
 
   return (
     <div>
-      ; <h1>Registration page</h1>
-      <form className="registration-form" onSubmit={formSubmit}>
+      <h1>Registration page</h1>
+      <SignUp  />
+      {/* <form className="registration-form" onSubmit={formSubmit}>
         <input
           type="text"
           placeholder="Name"
@@ -53,7 +55,7 @@ function Registartion() {
           If you already have account try to{" "}
           <NavLink to={navigation.login}>Log In!</NavLink>
         </p>
-      </form>
+      </form> */}
     </div>
   );
 }
