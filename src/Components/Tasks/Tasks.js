@@ -5,6 +5,7 @@ import TaskEditor from "../TaskEditor/TaskEditor";
 import Filter from "../Filter/Filter";
 import TaskList from "../TaskList/TaskList";
 import Counter from '../Counter/Counter'
+import Clock from "../Clock/Clock";
 // import counterSelectors from "../../redux/counter/counterSelectors";
 // import counterActions from "../../redux/counter/counterActions";
 
@@ -14,7 +15,8 @@ const Tasks = () => (
       <TaskEditor />
       <Filter />
       <TaskList />
-      <Counter  />
+      <Counter />
+      <Clock />
     </Layout>
   </div>
 );
