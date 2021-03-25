@@ -11,15 +11,26 @@ import NotFoundPage from "../../Pages/NotFoundPage";
 
 const App = () => (
   <>
-    <Nav  />
+    <Nav />
     <Switch>
-      <Route path="/" exact component={HomePage} />
-      <Route path="/about" component={AboutPage} />
-      <Route path="/contact" component={ContactPage} />
-      <Route path="/articles/:articleID" component={ArticlePage} />
-      <Route path="/articles" component={ArticlesPage} />
-      <Route component={NotFoundPage} />
-      <Redirect to="/" />
+      <Route path="/" exact>
+        <HomePage />
+      </Route>
+      <Route path="/about" >
+        <AboutPage/>
+      </Route>
+      <Route path="/contact" >
+        <ContactPage/>
+      </Route>
+      <Route path="/articles/:articleID">
+        <ArticlePage/>
+      </Route>
+      <Route path="/articles" >
+        <ArticlesPage/>
+      </Route>
+      <Route >
+        <NotFoundPage/>
+      </Route>
     </Switch>
   </>
 );
